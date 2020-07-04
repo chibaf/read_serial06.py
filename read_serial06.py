@@ -15,9 +15,9 @@ data=[];itime=0
 while True:
   try:
     itime=0
-    val='0'
+    val=0
     a = int(val).to_bytes(1, byteorder="little")
-    ser.write(a)  # SSR off
+    ser.write(a)  # make SSR off
     line = ser.readline()
     try:
       match = regex.findall(str(line))   # extracting number from strings
@@ -50,7 +50,7 @@ while True:
     pause(0.05) 
     itime=itime+1
     data=[]
-    val='200'  # make SSR on
+    val=200  # make SSR on
     a = int(val).to_bytes(1, byteorder="little")  # make SSR on
     ser.write(a)  # make SSR on
   except KeyboardInterrupt:
